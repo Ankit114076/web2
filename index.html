@@ -8,232 +8,69 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0a0f1c;color:#fff;scroll-behavior:smooth;}
 
-body{
-background:#0a0f1c;
-color:#fff;
-scroll-behavior:smooth;
-}
+header{padding:20px 10%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;}
 
-/* HEADER */
-header{
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
-z-index:1000;
-}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer;}
+.logo svg{transition:0.4s;}
+.logo:hover svg{transform:rotate(10deg) scale(1.1);}
+.logo-text h2{font-size:20px;}
+.logo-text p{font-size:12px;color:#aaa;}
 
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-cursor:pointer;
-}
+nav{display:flex;align-items:center;}
+nav a{color:#ccc;margin-left:20px;text-decoration:none;transition:0.3s;}
+nav a:hover{color:#00f5c3;}
 
-.logo svg{
-transition:0.4s;
-}
-
-.logo:hover svg{
-transform:rotate(10deg) scale(1.1);
-}
-
-.logo-text h2{
-font-size:20px;
-}
-
-.logo-text p{
-font-size:12px;
-color:#aaa;
-}
-
-/* NAV */
-nav{
-display:flex;
-align-items:center;
-}
-
-nav a{
-color:#ccc;
-margin-left:20px;
-text-decoration:none;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#00f5c3;
-}
-
-/* DROPDOWN */
-.dropdown{
-position:relative;
-}
-
+/* CLICK DROPDOWN */
+.dropdown{position:relative;}
 .dropdown-content{
 display:none;
 position:absolute;
 background:#11182b;
-top:30px;
+top:35px;
 min-width:260px;
 border-radius:10px;
 padding:10px;
-z-index:999;
+z-index:9999;
 }
+.dropdown-content a{display:block;padding:10px;color:#ccc;text-decoration:none;}
+.dropdown-content a:hover{background:#1a233a;color:#00f5c3;}
+.dropdown.active .dropdown-content{display:block;}
 
-.dropdown-content a{
-display:block;
-padding:10px;
-color:#ccc;
-text-decoration:none;
-}
+.hero{padding:70px 10% 40px;text-align:center;}
+.hero h2{font-size:50px;}
+.hero span{color:#00f5c3;}
+.hero p{margin:20px 0;color:#aaa;}
 
-.dropdown-content a:hover{
-background:#1a233a;
-color:#00f5c3;
-}
+.btn{padding:12px 25px;background:linear-gradient(45deg,#00f5c3,#00aaff);border:none;color:black;border-radius:25px;cursor:pointer;transition:0.3s;text-decoration:none;display:inline-block;}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 15px #00f5c3;}
+.linkedin{background:#0A66C2;color:#fff;}
 
-.dropdown:hover .dropdown-content{
-display:block;
-}
+.section{padding:70px 10%;}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.card{background:#11182b;padding:25px;border-radius:15px;transition:0.4s;}
+.card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,0.5);}
 
-/* HERO */
-.hero{
-padding:70px 10% 40px;
-text-align:center;
-}
+.pricing ul{margin-top:20px;line-height:2;}
 
-.hero h2{
-font-size:50px;
-}
+form{display:flex;flex-direction:column;gap:15px;max-width:400px;}
+input,textarea{padding:12px;border:none;border-radius:8px;outline:none;}
 
-.hero span{
-color:#00f5c3;
-}
+footer{text-align:center;padding:25px;background:#11182b;}
 
-.hero p{
-margin:20px 0;
-color:#aaa;
-}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:20px;text-decoration:none;}
 
-.btn{
-padding:12px 25px;
-background:linear-gradient(45deg,#00f5c3,#00aaff);
-border:none;
-color:black;
-border-radius:25px;
-cursor:pointer;
-transition:0.3s;
-text-decoration:none;
-display:inline-block;
-}
-
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px #00f5c3;
-}
-
-.linkedin{
-background:#0A66C2;
-color:#fff;
-}
-
-/* SECTION */
-.section{
-padding:70px 10%;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#11182b;
-padding:25px;
-border-radius:15px;
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* PRICING */
-.pricing ul{
-margin-top:20px;
-line-height:2;
-}
-
-/* CONTACT */
-form{
-display:flex;
-flex-direction:column;
-gap:15px;
-max-width:400px;
-}
-
-input,textarea{
-padding:12px;
-border:none;
-border-radius:8px;
-outline:none;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:25px;
-background:#11182b;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-text-decoration:none;
-}
-
-/* ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(30px);
-transition:1s;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
+.fade{opacity:0;transform:translateY(30px);transition:1s;}
+.fade.show{opacity:1;transform:translateY(0);}
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">
-
-<!-- LOGO -->
 <svg width="55" height="55" viewBox="0 0 100 100">
 <defs>
 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -241,30 +78,21 @@ transform:translateY(0);
 <stop offset="100%" style="stop-color:#00aaff"/>
 </linearGradient>
 </defs>
-
-<polygon points="50,5 95,50 50,95 5,50"
-fill="url(#grad1)"
-style="filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.5));"/>
-
-<text x="50%" y="58%" text-anchor="middle"
-font-size="32" fill="#000" font-weight="700">
-PC
-</text>
+<polygon points="50,5 95,50 50,95 5,50" fill="url(#grad1)"/>
+<text x="50%" y="58%" text-anchor="middle" font-size="32" fill="#000" font-weight="700">PC</text>
 </svg>
-
 <div class="logo-text">
 <h2>PitchnConquer</h2>
 <p>Data & Cloud Consulting</p>
 </div>
-
 </div>
 
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
 
-<div class="dropdown">
-<a href="#training">Training ▼</a>
+<div class="dropdown" id="trainingDropdown">
+<a href="javascript:void(0)" onclick="toggleDropdown()">Training ▼</a>
 <div class="dropdown-content">
 <a href="snowflake-developer.html">Snowflake Developer Training</a>
 <a href="snowflake-admin.html">Snowflake Administration Training</a>
@@ -280,140 +108,31 @@ PC
 <a href="#pricing">Pricing</a>
 <a href="#contact">Contact</a>
 </nav>
-
 </header>
 
-<!-- HERO -->
 <section class="hero fade">
 <h2><span>Build.</span> Scale. Optimize Your Modern Data Platforms</h2>
-<p>
-We help businesses reduce data costs, improve performance, and build scalable cloud data systems.
-</p>
-
-<p style="color:#aaa;">
-Around 14+ years of experience in Data Warehousing, Cloud, ETL pipelines, and SQL/PLSQL performance optimization & cost reduction.
-</p>
+<p>We help businesses reduce data costs, improve performance, and build scalable cloud data systems.</p>
+<p style="color:#aaa;">Around 14+ years of experience in Data Warehousing, Cloud, ETL pipelines, and SQL/PLSQL performance optimization.</p>
 <a href="#contact" class="btn">Get Started</a>
-
-<br><br>
-
-<a href="https://www.linkedin.com/in/ankit-agarwal-data-engineering-and-warehousing-expert-23184134a/" target="_blank" class="btn linkedin">
-Connect on LinkedIn
-</a>
-
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section fade">
-<h2>About Us</h2>
-
-<p>
-PitchnConquer helps businesses design, build, and scale modern data platforms using cloud and data engineering best practices.
-</p>
-
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section fade">
-<h2>Our Services</h2>
-
-<div class="services">
-
-<div class="card">
-<h3>Data Warehousing Architecture & Designing</h3>
-<p>Snowflake, Redshift, Synapse implementations with best practices.</p>
-</div>
-
-<div class="card">
-<h3>End to End ETL / ELT Pipelines</h3>
-<p>AWS Glue, Informatica, DBT, Airflow, Python pipelines.</p>
-</div>
-
-<div class="card">
-<h3>SQL Optimization & Code Cost Reduction</h3>
-<p>Performance tuning & cost reduction strategies.</p>
-</div>
-
-<div class="card">
-<h3>Multi-Cloud Architecture</h3>
-<p>Scalable, secure, and cost-efficient systems.</p>
-</div>
-
-</div>
-
-<p style="margin-top:20px;color:#00f5c3;text-align:center;">
-✔ Free 30-min consultation available
-</p>
-
-</section>
-
-<!-- TRAINING -->
-<section id="training" class="section fade">
-<h2>Training Programs</h2>
-
-<div class="services">
-
-<div class="card">Snowflake Developer Training</div>
-<div class="card">Snowflake Administration Training</div>
-<div class="card">AWS Data Engineering Training</div>
-<div class="card">AWS Redshift Training</div>
-<div class="card">DBT Training</div>
-<div class="card">Airflow Training</div>
-<div class="card">PL/SQL Training</div>
-<div class="card">SQL Training</div>
-
-</div>
-
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="section pricing fade">
-<h2>Pricing</h2>
-
-<ul>
-<li>✔ Hourly: ₹1500/hour (Ad-hoc support)</li>
-<li>✔ Monthly: ₹50,000+ (Dedicated engagement)</li>
-<li>✔ Project: Fixed pricing available</li>
-</ul>
-
-<p style="margin-top:15px;color:#aaa;">
-Custom enterprise pricing available based on project scope.
-</p>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section fade">
-<h2>Contact Us</h2>
-
-<form>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea placeholder="Your Message"></textarea>
-<button class="btn">Send Message</button>
-</form>
-
-<p>Email: info@pitchnconquer.com</p>
-</section>
-
-<!-- FOOTER -->
 <footer>
 <p>© 2026 PitchnConquer | Data & Cloud Consulting</p>
-<p>Helping businesses turn data into scalable, cost-efficient assets.</p>
 </footer>
 
-<a href="https://wa.me/918800903159?text=Hi%20I%20need%20data%20engineering%20consulting" class="whatsapp">💬</a>
-
 <script>
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-faders.forEach(el => {
-const top = el.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-el.classList.add('show');
+function toggleDropdown(){
+const dropdown = document.getElementById('trainingDropdown');
+dropdown.classList.toggle('active');
 }
-});
+
+// close when clicking outside
+window.addEventListener('click', function(e){
+const dropdown = document.getElementById('trainingDropdown');
+if(!dropdown.contains(e.target)){
+dropdown.classList.remove('active');
+}
 });
 </script>
 
