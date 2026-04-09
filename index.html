@@ -122,17 +122,18 @@ footer{text-align:center;padding:25px;background:#11182b;}
 </footer>
 
 <script>
-function toggleDropdown(){
-const dropdown = document.getElementById('trainingDropdown');
-dropdown.classList.toggle('active');
+function toggleDropdown(event){
+    event.stopPropagation(); // important
+    const dropdown = document.getElementById('trainingDropdown');
+    dropdown.classList.toggle('active');
 }
 
-// close when clicking outside
-window.addEventListener('click', function(e){
-const dropdown = document.getElementById('trainingDropdown');
-if(!dropdown.contains(e.target)){
-dropdown.classList.remove('active');
-}
+// close only when clicking outside
+document.addEventListener('click', function(e){
+    const dropdown = document.getElementById('trainingDropdown');
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
 });
 </script>
 
