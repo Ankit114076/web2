@@ -63,7 +63,7 @@ footer{text-align:center;padding:25px;background:#11182b;}
 <a href="#services">Services</a>
 
 <div class="dropdown" id="trainingDropdown">
-<a href="#" onclick="toggleDropdown(event)">Training ▼</a>
+<a href="#" id="trainingBtn">Training ▼</a>
 <div class="dropdown-content">
 <a href="snowflake-developer.html">Snowflake Developer Training</a>
 <a href="snowflake-admin.html">Snowflake Administration Training</a>
@@ -91,20 +91,24 @@ footer{text-align:center;padding:25px;background:#11182b;}
 </footer>
 
 <script>
-function toggleDropdown(event){
-    event.preventDefault();
-    event.stopPropagation();
+const dropdown = document.getElementById("trainingDropdown");
+const btn = document.getElementById("trainingBtn");
 
-    const dropdown = document.getElementById('trainingDropdown');
-    dropdown.classList.toggle('active');
-}
+// toggle dropdown
+btn.addEventListener("click", function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    dropdown.classList.toggle("active");
+});
 
-// close dropdown when clicking outside
-document.addEventListener('click', function(e){
-    const dropdown = document.getElementById('trainingDropdown');
-    if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('active');
-    }
+// prevent dropdown close when clicking inside it
+dropdown.addEventListener("click", function(e){
+    e.stopPropagation();
+});
+
+// close when clicking outside
+document.addEventListener("click", function(){
+    dropdown.classList.remove("active");
 });
 </script>
 
