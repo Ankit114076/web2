@@ -23,7 +23,7 @@ nav{display:flex;align-items:center;}
 nav a{color:#ccc;margin-left:20px;text-decoration:none;transition:0.3s;}
 nav a:hover{color:#00f5c3;}
 
-/* CLICK DROPDOWN */
+/* DROPDOWN */
 .dropdown{position:relative;}
 .dropdown-content{
 display:none;
@@ -44,26 +44,10 @@ z-index:9999;
 .hero span{color:#00f5c3;}
 .hero p{margin:20px 0;color:#aaa;}
 
-.btn{padding:12px 25px;background:linear-gradient(45deg,#00f5c3,#00aaff);border:none;color:black;border-radius:25px;cursor:pointer;transition:0.3s;text-decoration:none;display:inline-block;}
+.btn{padding:12px 25px;background:linear-gradient(45deg,#00f5c3,#00aaff);border:none;color:black;border-radius:25px;cursor:pointer;text-decoration:none;}
 .btn:hover{transform:scale(1.05);box-shadow:0 0 15px #00f5c3;}
-.linkedin{background:#0A66C2;color:#fff;}
-
-.section{padding:70px 10%;}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
-.card{background:#11182b;padding:25px;border-radius:15px;transition:0.4s;}
-.card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,0.5);}
-
-.pricing ul{margin-top:20px;line-height:2;}
-
-form{display:flex;flex-direction:column;gap:15px;max-width:400px;}
-input,textarea{padding:12px;border:none;border-radius:8px;outline:none;}
 
 footer{text-align:center;padding:25px;background:#11182b;}
-
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:20px;text-decoration:none;}
-
-.fade{opacity:0;transform:translateY(30px);transition:1s;}
-.fade.show{opacity:1;transform:translateY(0);}
 </style>
 </head>
 
@@ -71,20 +55,7 @@ footer{text-align:center;padding:25px;background:#11182b;}
 
 <header>
 <div class="logo">
-<svg width="55" height="55" viewBox="0 0 100 100">
-<defs>
-<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" style="stop-color:#00f5c3"/>
-<stop offset="100%" style="stop-color:#00aaff"/>
-</linearGradient>
-</defs>
-<polygon points="50,5 95,50 50,95 5,50" fill="url(#grad1)"/>
-<text x="50%" y="58%" text-anchor="middle" font-size="32" fill="#000" font-weight="700">PC</text>
-</svg>
-<div class="logo-text">
 <h2>PitchnConquer</h2>
-<p>Data & Cloud Consulting</p>
-</div>
 </div>
 
 <nav>
@@ -92,7 +63,7 @@ footer{text-align:center;padding:25px;background:#11182b;}
 <a href="#services">Services</a>
 
 <div class="dropdown" id="trainingDropdown">
-<a href="javascript:void(0)" onclick="toggleDropdown()">Training ▼</a>
+<a href="#" onclick="toggleDropdown(event)">Training ▼</a>
 <div class="dropdown-content">
 <a href="snowflake-developer.html">Snowflake Developer Training</a>
 <a href="snowflake-admin.html">Snowflake Administration Training</a>
@@ -110,25 +81,25 @@ footer{text-align:center;padding:25px;background:#11182b;}
 </nav>
 </header>
 
-<section class="hero fade">
-<h2><span>Build.</span> Scale. Optimize Your Modern Data Platforms</h2>
-<p>We help businesses reduce data costs, improve performance, and build scalable cloud data systems.</p>
-<p style="color:#aaa;">Around 14+ years of experience in Data Warehousing, Cloud, ETL pipelines, and SQL/PLSQL performance optimization.</p>
-<a href="#contact" class="btn">Get Started</a>
+<section class="hero">
+<h2><span>Build.</span> Scale. Optimize</h2>
+<p>Data & Cloud Consulting</p>
 </section>
 
 <footer>
-<p>© 2026 PitchnConquer | Data & Cloud Consulting</p>
+<p>© 2026 PitchnConquer</p>
 </footer>
 
 <script>
 function toggleDropdown(event){
-    event.stopPropagation(); // important
+    event.preventDefault();
+    event.stopPropagation();
+
     const dropdown = document.getElementById('trainingDropdown');
     dropdown.classList.toggle('active');
 }
 
-// close only when clicking outside
+// close dropdown when clicking outside
 document.addEventListener('click', function(e){
     const dropdown = document.getElementById('trainingDropdown');
     if (!dropdown.contains(e.target)) {
